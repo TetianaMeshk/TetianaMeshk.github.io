@@ -3,11 +3,12 @@ body {
     font-family: 'Oswald', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('back.jpg'); /* Замініть 'background.jpg' на вашу картинку */
+    background-image: url('back.jpg'); 
     background-size: cover; /* Масштабує зображення, щоб воно покривало весь екран */
     background-position: center; /* Центрує фон */
     background-attachment: fixed; /* Фіксує фон при прокручуванні */
     color: #333; /* Колір тексту */
+    font-size: 20px;
 }
 
 /* Заголовок */
@@ -17,12 +18,12 @@ header {
     padding: 15px 20px;
 }
 
-/* Контейнер заголовка */
-.header-container {
-    display: flex;
-    flex-direction: column; /* Використовуємо вертикальне розташування елементів */
-    align-items: left; /* Центруємо елементи по горизонталі */
-    gap: 10px; /* Відстань між елементами */
+.nav-links li a {
+    display: block;
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
 }
 
 /* Лого + заголовок */
@@ -38,8 +39,13 @@ header {
 }
 
 h1 {
-    font-size: 22px;
+    font-size: 25px;
     margin: 0;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 20;
 }
 
 /* Навігація */
@@ -61,6 +67,7 @@ h1 {
     font-weight: bold;
     padding: 10px;
     transition: 0.3s;
+    font-size: 18px;
 }
 
 .nav-links li a:hover {
@@ -92,6 +99,7 @@ main {
     text-align: left; /* Вирівнюємо весь текст по лівому краю */
     line-height: 1.2; /* Зменшуємо міжрядковий інтервал */
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Додаємо плавний перехід */
+    font-size: 20px;
 }
 
 /* Підсвічування картки при наведенні */
@@ -143,6 +151,19 @@ footer {
 
 /* Адаптивність */
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 17px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
     .header-container {
         flex-direction: column;
         align-items: left;
@@ -163,23 +184,15 @@ footer {
         text-align: left;
         padding: 10px;
         width: 100%;
+        font-size: 16px;
     }
     
     .grid-container {
         grid-template-columns: 1fr;
     }
 
-    #progress, 
-    #nutrition {
-        padding: 20px; /* Менші відступи всередині */
-        width: 90%; /* Займатимуть більшу частину екрану */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    h1 {
-        font-size: 18px;
-        text-align: left;
+    .training-card {
+        font-size: 17px;
     }
 
     .logo {
@@ -191,5 +204,61 @@ footer {
     #nutrition {
         padding: 20px; /* Менші відступи всередині */
         width: 90%; /* Займатимуть більшу частину екрану */
+    }
+
+    footer {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 17px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: left;
+        gap: 10px;
+    }
+    
+    .nav-links li {
+        display: block;
+    }
+    
+    .nav-links li a {
+        display: block;
+        text-align: left;
+        padding: 10px;
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .training-card {
+        font-size: 12px;
+    }
+
+    #progress, 
+    #nutrition {
+        padding: 20px; /* Менші відступи всередині */
+        width: 90%; /* Займатимуть більшу частину екрану */
+    }
+
+    footer {
+        font-size: 12px;
     }
 }
