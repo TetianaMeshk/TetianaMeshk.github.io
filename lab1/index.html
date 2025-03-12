@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платформа моніторингу здоров'я</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <img src="logo3.png" alt="Логотип" class="logo">
+                <h1>Моніторинг здоров'я та фізичної активності</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#trainings">Тренування</a></li>
+                    <li><a href="#progress">Мій прогрес</a></li>
+                    <li><a href="#nutrition">Раціон</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="trainings">
+            <h2>Тренування</h2>
+            <div class="grid-container">
+                <article class="training-card">
+                    <img src="workout1.jpg" alt="Тренування 1">
+                    <h3>Кардіо</h3>
+                    <p>Ефективне кардіо для покращення витривалості.</p>
+                    <p><strong>Тривалість:</strong> 13 хв</p>
+                    <p><strong>Калорії:</strong> 300 ккал</p>
+                    <p><a href="https://www.youtube.com/watch?v=gHav--Sjhbk" target="_blank">
+                        <button class="execute-btn">Переглянути тренування</button>
+                    </a></p>
+                    <button class="execute-btn">Виконати</button>
+                </article>
+                <article class="training-card">
+                    <img src="workout2.jpg" alt="Тренування 2">
+                    <h3>Силові вправи</h3>
+                    <p>Зміцнення м'язів та покращення фізичної форми.</p>
+                    <p><strong>Тривалість:</strong> 34 хв</p>
+                    <p><strong>Калорії:</strong> 400 ккал</p>
+                    <p><a href="https://www.youtube.com/watch?v=imKGm85nie4" target="_blank">
+                        <button class="execute-btn">Переглянути тренування</button>
+                    </a></p>
+                    </video>
+                    <button class="execute-btn">Виконати</button>
+                </article>
+                <article class="training-card">
+                    <img src="workout5.jpg" alt="Тренування 3">
+                    <h3>Пілатес</h3>
+                    <p>комплекс фізичних вправ для розвитку гнучкості всіх м'язів тіла.</p>
+                    <p><strong>Тривалість:</strong> 54 хв</p>
+                    <p><strong>Калорії:</strong> 500 ккал</p>
+                    <p><a href="https://www.youtube.com/watch?v=N1nqm6xsPmU" target="_blank">
+                        <button class="execute-btn">Переглянути тренування</button>
+                    </a></p>
+                    <button class="execute-btn">Виконати</button>
+                </article>
+                <article class="training-card">
+                    <img src="workout3.jpg" alt="Тренування 4">
+                    <h3>Йога</h3>
+                    <p>Заспокійливі вправи для підтримки тонусу шкіри.</p>
+                    <p><strong>Тривалість:</strong> 25 хв</p>
+                    <p><strong>Калорії:</strong> 285 ккал</p>
+                    <p><a href="https://www.youtube.com/watch?v=5zV7TikZiEw" target="_blank">
+                        <button class="execute-btn">Переглянути тренування</button>
+                    </a></p>
+                    <button class="execute-btn">Виконати</button>
+                </article>
+                <article class="training-card">
+                    <img src="workout4.jpg" alt="Тренування 5">
+                    <h3>Розтяжка</h3>
+                    <p>Система вправ, спрямована на розвиток гнучкості всіх м'язів, суглобів та сухожиль.</p>
+                    <p><strong>Тривалість:</strong> 32 хв</p>
+                    <p><strong>Калорії:</strong> 310 ккал</p>
+                    <p><a href="https://www.youtube.com/watch?v=giEB7NmJD_Q" target="_blank">
+                        <button class="execute-btn">Переглянути тренування</button>
+                    </a></p>
+                    <button class="execute-btn">Виконати</button>
+                </article>
+            </div>
+        </section>
+        
+        <section id="progress">
+            <br>
+            <h2>Мій прогрес</h2>
+            <div class="time-range">
+                <label for="time-range"><strong>Виберіть часовий проміжок:</strong></label>
+                <select id="time-range" name="time-range">
+                    <option value="day">День</option>
+                    <option value="week">Тиждень</option>
+                    <option value="month">Місяць</option>
+                    <option value="year">Рік</option>
+                </select>
+            </div>
+            <p><strong>Кількість тренувань:</strong> 2</p>
+            <ul>
+                <li>10.03.2025 - Кардіо</li>
+                <li>11.03.2025 - Силові вправи</li>
+            </ul>
+            <h3>Список виконаних тренувань:</h3>
+            <table>
+                <tr>
+                    <th>Дата</th>
+                    <th>Тренування</th>
+                    <th>Калорії</th>
+                </tr>
+                <tr>
+                    <td>10.03.2025</td>
+                    <td>Кардіо</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>11.03.2025</td>
+                    <td>Силові вправи</td>
+                    <td>400</td>
+                </tr>
+            </table>
+            <p><strong>Рівень активності:</strong> Середній</p>
+            <p><strong>Загальний час тренувань:</strong> 1 год</p>
+            <p><strong>Кількість спалених калорій:</strong> 700 ккал</p>
+        </section>
+        
+        <section id="nutrition">
+            <br>
+            <h2>Раціон</h2>
+            <form>
+                <label for="meal-time">Прийом їжі:</label>
+                <select id="meal-time" name="meal-time">
+                    <option value="breakfast">Сніданок</option>
+                    <option value="snack">Перекус</option>
+                    <option value="lunch">Обід</option>
+                    <option value="snack2">Другий перекус</option>
+                    <option value="dinner">Вечеря</option>
+                    <option value="snack3">Третій перекус</option>
+                </select>
+                <p><label for="meal">Назва страви:</label>
+                <input type="text" id="meal" name="meal" required></p>
+                <p><label for="weight">Вага:</label>
+                <input type="number" id="weight" name="weight" required></p>
+                <button type="submit">Додати</button>
+            </form>
+            <ul id="meal-list">
+                <li><strong>Сніданок:</strong> Вівсянка - 250 ккал</li>
+                <li><strong>Обід:</strong> Курка з рисом - 500 ккал</li>
+            </ul>
+            <h3>Водний баланс</h3>
+            <p><strong>Випито води за день:</strong> 1.5 л</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Інформаційна служба: +380505010346</p>
+        <p>Email: tetiana.meshkova.oi.2023@lpnu.ua</p>
+        <p>Ⓒ Сайт моніторингу здоров'я та фізичної активності 2025</p>
+    </footer>
+</body>
+</html>
