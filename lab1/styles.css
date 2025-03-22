@@ -46,6 +46,7 @@ h1 {
 h2 {
     font-size: 25px;
     margin: 20;
+    text-align: left;
 }
 
 /* Навігація */
@@ -82,7 +83,14 @@ main {
     margin: auto;
 }
 
-.grid-container {
+#trainings, #trainers {
+    padding: 20px;
+    background: none;
+    text-align: center;
+}
+
+.grid-container,
+.trainer-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -91,7 +99,8 @@ main {
 }
 
 /* Картки */
-.training-card {
+.training-card,
+.trainer-card {
     background-color: white;
     padding: 15px;
     border-radius: 8px;
@@ -103,7 +112,8 @@ main {
 }
 
 /* Підсвічування картки при наведенні */
-.training-card:hover {
+.training-card:hover,
+.trainer-card:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Більша тінь для підсвічування */
     transform: scale(1.05); /* Трохи збільшуємо розмір картки */
 }
@@ -114,8 +124,14 @@ main {
     border-radius: 5px;
 }
 
+.trainer-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
 /* Кнопки "Виконати" */
-.execute-btn {
+.execute-btn,
+.choose, .submit button  {
     margin-top: 10px;
     padding: 10px 15px;
     background-color: #2c3e50;
@@ -125,9 +141,16 @@ main {
     cursor: pointer;
 }
 
-.execute-btn:hover {
+.execute-btn:hover,
+.trainer-card button:hover {
     background-color: #34495e;
 }
+
+.date-picker,
+.time-picker {
+    text-align: left;
+}
+
 
 /* Футер */
 footer {
@@ -140,14 +163,104 @@ footer {
 
 #progress, 
 #nutrition {
-    padding: 90px; /* Менші відступи */
-    margin: 20px auto; /* Центрування та зменшення відступів */
+    padding: 30px; /* Менші відступи */
+    margin: 40px auto; /* Центрування та зменшення відступів */
     background-color: #fafafa;
-    border-radius: 10px;
+    border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 80%;
 }
 
+.chart-container {
+    width: 100%; /* Задає ширину на 100% контейнера */
+    max-width: 400px; /* Максимальна ширина графіка */
+    height: 300px; /* Фіксована висота */
+    margin: 50px 40px; /* Центрує контейнер на сторінці */
+    overflow: visible; /* Якщо графік буде перевищувати розміри, він буде обрізаний */
+    position: relative; /* Для подальшого вирівнювання елементів в межах контейнера */
+}
+
+.chart {
+    display: flex; /* Використовуємо flexbox для вирівнювання стовпців */
+    justify-content: space-between; /* Розміщуємо стовпці рівномірно по ширині */
+    align-items: flex-end; /* Вирівнюємо стовпці по нижній частині */
+    height: 100%;
+}
+
+.bar {
+    width: 28px; /* Ширина кожного стовпця */
+    background-color: #3498db; /* Колір стовпців */
+    transition: height 0.3s ease-in-out; /* Анімація для зміни висоти */
+}
+
+.y-axis-labels {
+    position: absolute;
+    top: 0;
+    left: -40px; /* Відстань від графіка */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: #333;
+}
+
+.y-label {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+/* Підписи для горизонтальної осі */
+.x-axis-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: -25px; /* Відстань для підписів горизонтальної осі */
+}
+
+.x-label {
+    font-size: 12px;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Створення двох стовпців, кожен займає половину ширини */
+    gap: 20px; /* Відстань між стовпцями */
+  }
+  
+.column {
+    padding: 10px;
+}
+
+.meal-table {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.meal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.meal-row:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.plus {
+    font-weight: bold;
+}
 
 /* Адаптивність */
 @media screen and (max-width: 768px) {
@@ -161,7 +274,7 @@ footer {
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .header-container {
@@ -191,8 +304,21 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .training-card {
+    .container {
+        grid-template-columns: 1fr; /* Одна колонка на малих екранах */
+        gap: 10px; /* Менша відстань між елементами */
+    }
+
+    .training-card,
+    .trainer-card {
         font-size: 17px;
+        max-width: 100%;
+    }
+
+    .execute-btn,
+    .choose, .submit button  {
+        margin-top: 5px;
+        font-size: 8px;
     }
 
     .logo {
@@ -204,6 +330,39 @@ footer {
     #nutrition {
         padding: 20px; /* Менші відступи всередині */
         width: 90%; /* Займатимуть більшу частину екрану */
+        margin: 20px auto; /* Центруємо контейнер */
+        display: block; /* Перехід на блоковий елемент */
+    }
+
+    .chart-container{
+        width: 100%; /* Задає ширину на 100% контейнера */
+        max-width: 250px; /* Повна ширина для таблиці */
+        height: 150px; /* Автоматична висота */
+    }
+
+    .chart {
+        display: flex; /* Використовуємо flexbox для вирівнювання стовпців */
+        justify-content: space-between; /* Розміщуємо стовпці рівномірно по ширині */
+        align-items: flex-end; /* Вирівнюємо стовпці по нижній частині */
+        height: 140%;
+    }
+
+    .y-label {
+        font-size: 8px;
+    }
+    
+    .x-label {
+        font-size: 8px;
+    }
+    
+    .x-axis-labels {
+        bottom: -78px; /* Відстань для підписів горизонтальної осі */
+    }    
+
+    .meal-table {
+        font-size: 17px;
+        width: 100%; /* Повна ширина для таблиці */
+        height: auto;
     }
 
     footer {
@@ -243,12 +402,19 @@ footer {
         font-size: 15px;
     }
 
+    .execute-btn,
+    .choose, .submit button  {
+        margin-top: 2px;
+        font-size: 5px;
+    }
+
     .logo {
         width: 50px;
         height: 50px;
     }
 
-    .training-card {
+    .training-card,
+    .trainer-card {
         font-size: 12px;
     }
 
@@ -256,6 +422,40 @@ footer {
     #nutrition {
         padding: 20px; /* Менші відступи всередині */
         width: 90%; /* Займатимуть більшу частину екрану */
+        margin: 20px auto; /* Центруємо контейнер */
+        display: block; /* Перехід на блоковий елемент */
+    }
+
+    .chart-container{
+        width: 100%; /* Задає ширину на 100% контейнера */
+        max-width: 110px; /* Повна ширина для таблиці */
+        height: 90px; /* Автоматична висота */
+        margin-bottom: 110px; /* Додано нижній відступ */
+    }
+
+    .chart {
+        display: flex; /* Використовуємо flexbox для вирівнювання стовпців */
+        justify-content: space-between; /* Розміщуємо стовпці рівномірно по ширині */
+        align-items: flex-end; /* Вирівнюємо стовпці по нижній частині */
+        height: 199%;
+    }
+    
+    .y-label {
+        font-size: 8px;
+    }
+    
+    .x-label {
+        font-size: 8px;
+    }
+
+    .x-axis-labels {
+        bottom: -100px; /* Відстань для підписів горизонтальної осі */
+    }    
+
+    .meal-table {
+        font-size: 12px;
+        width: 100%; /* Повна ширина для таблиці */
+        height: auto; /* Автоматична висота */
     }
 
     footer {
