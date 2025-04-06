@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платформа моніторингу здоров'я</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <img src="logo3.png" alt="Логотип" class="logo">
+                <h1>Моніторинг здоров'я та фізичної активності</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#treiner">Тренери</a></li>
+                    <li><a href="#trainings">Тренування</a></li>
+                    <li><a href="#progress">Мій прогрес</a></li>
+                    <li><a href="#nutrition">Раціон</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="trainers">
+            <h2>Тренери</h2>
+            <div class="trainer-container">
+                <div class="trainer-card">
+                    <img src="trainer1.jpg" alt="Тренер 1">
+                    <h3>Рудик Анжеліна</h3>
+                    <p>Досвід: 5 років</p>
+                    <label for="date1" class="date-label"><strong>Дата:</strong></label>
+                    <input type="date" id="date1" class="date-picker">
+                    <label for="time1"><p><strong>Час:</strong></label>
+                    <select id="time1" class="time-select">
+                            <option value="">Оберіть час</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                    </select>
+                    <button id="choose1" class="choose-btn">Обрати</button>
+                </div>
+                
+                <div class="trainer-card">
+                    <img src="trainer2.jpg" alt="Тренер 2">
+                    <h3>Калініченко Сергій</h3>
+                    <p>Досвід: 7 років</p>
+                    
+                    <label for="date2" class="date-label"><strong>Дата:</strong></label>
+                    <input type="date" id="date2" class="date-picker">
+                    <label for="time2"><p><strong>Час:</strong></label>
+                    <select id="time2" class="time-select">
+                            <option value="">Оберіть час</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                    </select>
+                    <button id="choose2" class="choose-btn">Обрати</button>
+                </div>
+                
+                <div class="trainer-card">
+                    <img src="trainer3.jpg" alt="Тренер 3">
+                    <h3>Шахова Дарина</h3>
+                    <p>Досвід: 5 років</p>
+                    
+                    <label for="date3" class="date-label"><strong>Дата:</strong></label>
+                    <input type="date" id="date3" class="date-picker">
+                    <label for="time3"><p><strong>Час:</strong></label>
+                    <select id="time3" class="time-select">
+                            <option value="">Оберіть час</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                    </select>
+                    <button id="choose3" class="choose-btn">Обрати</button>
+                </div>
+                <div class="trainer-card">
+                    <img src="trainer4.jpg" alt="Тренер 4">
+                    <h3>Пілатов Богдан</h3>
+                    <p>Досвід роботи 7 років</p>
+                    
+                    <label for="date4" class="date-label"><strong>Дата:</strong></label>
+                    <input type="date" id="date4" class="date-picker">
+                    <label for="time4"><p><strong>Час:</strong></label>
+                    <select id="time4" class="time-select">
+                            <option value="">Оберіть час</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                    </select>
+                    <button id="choose4" class="choose-btn">Обрати</button>
+                </div>
+                <div class="trainer-card">
+                    <img src="trainer5.jpg" alt="Тренер 5">
+                    <h3>Завгородній Денис</h3>
+                    <p>Досвід роботи 5 років</p>
+                    
+                    <label for="date5" class="date-label"><strong>Дата:</strong></label>
+                    <input type="date" id="date5" class="date-picker">
+                    <label for="time5"><p><strong>Час:</strong></label>
+                    <select id="time5" class="time-select">
+                        <option value="">Оберіть час</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                    </select>
+                    <button id="choose5" class="choose-btn">Обрати</button>
+                </div>
+            </div>
+        </section>
+ 
+        <section id="trainings">
+            <br>
+            <h2>Тренування</h2>
+            <div class="grid-container">
+
+        </section>
+        
+        <section id="progress">
+            <h2>Мій прогрес</h2>
+            <div class="time-range">
+                <label for="time-range"><strong>Оберіть часовий проміжок:</strong></label>
+                <select id="time-range" name="time-range">
+                    <option value="day">День</option>
+                    <option value="week">Тиждень</option>
+                    <option value="month">Місяць</option>
+                </select>
+            </div>
+            <div class="container">
+                <div class="column"><h3>Спалено калорій</h3>
+                    <canvas id="caloriesChart"></canvas>
+                </div>
+                <div class="column"><h3>Сьогоднішня активність</h3>
+                    <strong>Виконані тренування:</strong>
+                    <ul id="training-list">
+                    </ul>
+                    <p><strong>Загальний час тренувань:</strong></p>
+                    <p><strong>Кількість спалених калорій:</strong></p>
+                    <p><strong>Досягнення:</strong> середня кількість спалених калорій цього тижня більша, ніж минулого</p>        
+                </div>
+            </div>
+        </section>
+        
+        <section id="nutrition">
+            <h2>Раціон</h2>
+            <div class="container">
+                <div class="column"><h3>Спожите за сьогодні</h3>
+                    <div class="meal-table">
+                        <div class="meal-row" onclick="toggleMealDetails('breakfast')">
+                            <span class="meal-name">Сніданок</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-breakfast" class="meal-details"></div>
+        
+                        <div class="meal-row" onclick="toggleMealDetails('snack')">
+                            <span class="meal-name">Перекус</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-snack" class="meal-details"></div>
+        
+                        <div class="meal-row" onclick="toggleMealDetails('lunch')">
+                            <span class="meal-name">Обід</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-lunch" class="meal-details"></div>
+        
+                        <div class="meal-row" onclick="toggleMealDetails('snack2')">
+                            <span class="meal-name">Другий перекус</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-snack2" class="meal-details"></div>
+        
+                        <div class="meal-row" onclick="toggleMealDetails('dinner')">
+                            <span class="meal-name">Вечеря</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-dinner" class="meal-details"></div>
+        
+                        <div class="meal-row" onclick="toggleMealDetails('snack3')">
+                            <span class="meal-name">Третій перекус</span>
+                            <span class="plus">+</span>
+                        </div>
+                        <div id="meal-details-snack3" class="meal-details"></div>
+                    </div>
+                    <h3>Водний баланс</h3>
+                    <p><strong>Випито води за день:</strong> 1.5 л</p>
+                </div>
+                <div class="column"><h3>Додати страву</h3>
+                    <form>
+                        <label for="meal-time">Прийом їжі:</label>
+                        <select id="meal-time" name="meal-time">
+                            <option value="breakfast">Сніданок</option>
+                            <option value="snack">Перекус</option>
+                            <option value="lunch">Обід</option>
+                            <option value="snack2">Другий перекус</option>
+                            <option value="dinner">Вечеря</option>
+                            <option value="snack3">Третій перекус</option>
+                        </select>
+                        <p><label for="meal">Назва страви:</label>
+                        <input type="text" id="meal" name="meal" required></p>
+                        <p><label for="weight">Вага:</label>
+                        <input type="number" id="weight" name="weight" required></p>
+                        <p><label for="calories">Калорійність (ккал):</label>
+                        <input type="number" id="calories" name="calories" required></p>
+                        <button type="button" id="add-meal">Додати</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+    
+    <footer>
+        <p>Інформаційна служба: +380505010346</p>
+        <p>Email: tetiana.meshkova.oi.2023@lpnu.ua</p>
+        <p>Ⓒ Сайт моніторингу здоров'я та фізичної активності 2025</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
