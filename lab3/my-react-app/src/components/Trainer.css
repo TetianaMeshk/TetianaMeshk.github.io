@@ -1,0 +1,95 @@
+#trainers {
+  padding: 20px;
+  background: none;
+  text-align: center;
+}
+
+.trainer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1800px;
+  justify-items: center;
+}
+
+/* Картки тренерів */
+.trainer-card {
+  background-color: white;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  line-height: 1.2;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 20px;
+}
+
+/* Підсвічування картки при наведенні */
+.trainer-card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.trainer-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Кнопки "Обрати" */
+.choose {
+  margin-top: 50px;
+  padding: 10px 15px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.choose:hover {
+  background-color: #34495e;
+}
+
+/* Потрібні стилі для інпутів */
+.date-picker, .time-picker {
+  text-align: left;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-size: 18px;
+}
+
+.close-modal-btn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.close-modal-btn:hover {
+  background-color: #34495e;
+}
