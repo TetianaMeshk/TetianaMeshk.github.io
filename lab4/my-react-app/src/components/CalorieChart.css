@@ -1,0 +1,17 @@
+#caloriesChart {
+    width: 100% !important;
+    max-width: 600px;
+    height: 400px !important;
+    font-size: 20px;
+  }
+  
+  .chartjs-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .chartjs-tick {
+    font-size: 14px;
+    color: #000000;
+  }
+  

@@ -1,0 +1,34 @@
+#progress {
+    padding: 30px;
+    margin: 40px auto;
+    background-color: #fafafa;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+  }
+  
+  /* Контейнер для двох колонок */
+  .progress-columns {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+  
+  /* Колонки */
+  .progress-column {
+    flex: 1;
+  }
+  
+  /* Графік */
+  #caloriesChart {
+    width: 100% !important;
+    max-width: 600px;
+    height: 400px !important;
+    font-size: 20px;
+  }
+  
+  /* Заголовки */
+  .progress-column h2 {
+    margin: 0 0 20px;
+  }
+  

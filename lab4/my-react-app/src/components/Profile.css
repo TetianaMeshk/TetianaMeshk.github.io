@@ -1,0 +1,153 @@
+.profile-page {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .profile-container {
+    background-color: #fff;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #2c3e50;
+  }
+  
+  .profile-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #777;
+  }
+  
+  .change-photo-btn {
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .change-photo-btn:hover {
+    background-color: #34495e;
+  }
+  
+  .profile-info {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .name-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid #2c3e50;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .save-name-btn {
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .save-name-btn:hover {
+    background-color: #34495e;
+  }
+  
+  .trainings-list {
+    width: 100%;
+    margin-top: 30px;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .trainings-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .trainings-list li {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .trainings-list li strong {
+    color: #2c3e50;
+  }
+  
+  .trainings-list p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .logout-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #34495e;
+  }
+  

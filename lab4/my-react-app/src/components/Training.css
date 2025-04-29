@@ -1,0 +1,158 @@
+#trainings {
+  padding: 20px;
+  background: none;
+  text-align: center;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.filter-container label {
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#training-type {
+  padding: 5px 10px;
+  font-size: 20px; /* тут зміна */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 100%;
+  overflow: visible; /* дозволяє показувати частини, які виходять */
+  margin: 0 auto;
+  padding: 0 40px; /* простір для "вилізання" при hover */
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  gap: 20px;
+  overflow: visible; /* важливо для hover-ефекту */
+}
+
+.training-card {
+  flex: 0 0 calc(27% - 20px); /* трохи більші картки */
+  background-color: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  line-height: 1.5;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 340px;
+  max-width: 440px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.training-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  z-index: 10; /* щоб картка була поверх інших */
+}
+
+.training-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.training-card h3,
+.training-card p {
+  margin: 10px 0;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.execute-btn,
+.watch-btn {
+  padding: 10px 16px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  width: fit-content;
+  text-decoration: none;
+  min-width: 150px;
+  max-width: 80%;
+}
+
+.execute-btn:hover,
+.watch-btn:hover {
+  background-color: #34495e;
+}
+
+.carousel-btn {
+  font-size: 2.5rem;
+  background-color: rgba(44, 62, 80, 0.9);
+  border: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  color: white;
+  transition: transform 0.2s, background-color 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.left {
+  left: 5px;
+}
+
+.carousel-btn.right {
+  right: 5px;
+}
+
+/* 🔽 Адаптивність */
+@media screen and (max-width: 1200px) {
+  .training-card {
+    flex: 0 0 calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .training-card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .training-card {
+    flex: 0 0 100%;
+  }
+
+  .carousel-btn.left {
+    left: 10px;
+  }
+
+  .carousel-btn.right {
+    right: 10px;
+  }
+}
