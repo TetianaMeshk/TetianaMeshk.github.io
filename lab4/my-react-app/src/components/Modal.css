@@ -14,7 +14,7 @@
   background-color: white;
   padding: 20px 20px 15px;
   border-radius: 8px;
-  width: 340px;
+  width: 380px;
   max-width: 90%;
   position: relative;
   display: flex;
@@ -57,6 +57,10 @@
   margin: 10px 0 5px;
   font-size: 16px; /* ДОДАЄМО розмір шрифту */
   font-weight: 600; /* За бажанням зробимо текст трохи жирнішим */
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #333;
 }
 
 .modal-content p {
@@ -116,4 +120,31 @@
   color: #333;
   margin: 5px 0;
   font-weight: 500; /* Текст трошки жирніший */
+}
+
+.google-login-btn {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.google-login-btn:hover {
+  background-color: #333;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
 }

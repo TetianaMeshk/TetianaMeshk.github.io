@@ -3,7 +3,9 @@ import './Trainer.css';
 import Modal from './Modal';
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../firebase';
-import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import {
+  doc, getDoc, setDoc, updateDoc, arrayUnion, collection, getDocs
+} from 'firebase/firestore';
 
 const trainers = [
   { id: 1, name: 'Рудик Анжеліна', experience: 5, image: '/images/trainer1.jpg' },
@@ -18,7 +20,16 @@ const Trainer = () => {
   const [modalMessage, setModalMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [today, setToday] = useState('');
   const VISIBLE_CARDS = 4;
+
+  useEffect(() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    setToday(`${year}-${month}-${day}`);
+  }, []);
 
   const handleBooking = async (trainerId) => {
     if (!currentUser) {
@@ -38,9 +49,41 @@ const Trainer = () => {
       return;
     }
 
-    const userDocRef = doc(db, 'users', currentUser.uid);
+    const usersCollection = collection(db, 'users');
 
     try {
+      const querySnapshot = await getDocs(usersCollection);
+      let isTimeTaken = false;
+      let isCurrentUserBooked = false;
+
+      querySnapshot.forEach(docSnap => {
+        const data = docSnap.data();
+        const trainings = data.trainings || [];
+
+        trainings.forEach(training => {
+          if (training.date === date && training.time === time) {
+            if (docSnap.id === currentUser.uid) {
+              isCurrentUserBooked = true;
+            } else if (training.trainerId === trainerId) {
+              isTimeTaken = true;
+            }
+          }
+        });
+      });
+
+      if (isTimeTaken) {
+        setModalMessage('❌ Цей час вже заброньований іншим користувачем.');
+        setIsModalOpen(true);
+        return;
+      }
+
+      if (isCurrentUserBooked) {
+        setModalMessage('⚠️ Ви вже записались на цей час.');
+        setIsModalOpen(true);
+        return;
+      }
+
+      const userDocRef = doc(db, 'users', currentUser.uid);
       const userSnap = await getDoc(userDocRef);
 
       if (!userSnap.exists()) {
@@ -56,8 +99,9 @@ const Trainer = () => {
         })
       });
 
-      setModalMessage(`Ви записалися на тренування ${date} о ${time}`);
+      setModalMessage(`✅ Ви записалися на тренування ${date} о ${time}`);
       setIsModalOpen(true);
+
     } catch (error) {
       console.error(error);
       setModalMessage('Сталася помилка при бронюванні.');
@@ -90,7 +134,13 @@ const Trainer = () => {
               <p>Досвід: {trainer.experience} років</p>
 
               <label htmlFor={`date${trainer.id}`}><strong>Дата:</strong></label>
-              <input type="date" id={`date${trainer.id}`} className="date-picker" />
+              <input
+                type="date"
+                id={`date${trainer.id}`}
+                className="date-picker"
+                min={today}
+              />
+
               <label htmlFor={`time${trainer.id}`}><strong>Час:</strong></label>
               <select id={`time${trainer.id}`} className="time-select">
                 <option value="">Оберіть час</option>
@@ -98,6 +148,7 @@ const Trainer = () => {
                   <option key={time} value={time}>{time}</option>
                 ))}
               </select>
+
               <button className="choose" onClick={() => handleBooking(trainer.id)}>Обрати</button>
             </div>
           ))}

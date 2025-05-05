@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -13,23 +13,34 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-export const auth = getAuth(app);  
-// Функція для оновлення профілю користувача
-export const updateUserProfile = async ({ displayName, photoURL }) => {
-  const user = auth.currentUser;  // Отримуємо поточного користувача
+export const auth = getAuth(app);
 
+//Оновлення профілю користувача
+export const updateUserProfile = async ({ displayName, photoURL }) => {
+  const user = auth.currentUser;
   if (user) {
     try {
-      await updateProfile(user, {
-        displayName: displayName,   // Оновлюємо ім'я
-        photoURL: photoURL          // Оновлюємо фото
-      });
-      console.log("Профіль успішно оновлено!");
+      await updateProfile(user, { displayName, photoURL });
+      console.log("Профіль оновлено!");
     } catch (error) {
-      console.error("Помилка при оновленні профілю: ", error.message);
+      console.error("Помилка оновлення профілю:", error.message);
     }
   } else {
     console.log("Користувач не авторизований.");
+  }
+};
+
+//Google Auth
+const provider = new GoogleAuthProvider();
+
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    console.log("Успішний Google-вхід:", result.user);
+    return result.user;
+  } catch (error) {
+    console.error("Помилка входу через Google:", error.message);
+    throw error;
   }
 };
 

@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, updateUserProfile } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import './Profile.css';
 
 const Profile = () => {
@@ -17,24 +17,20 @@ const Profile = () => {
     const fetchUserData = async () => {
       const userRef = doc(db, 'users', currentUser.uid);
       const userSnap = await getDoc(userRef);
+
       if (userSnap.exists()) {
         setUserData(userSnap.data());
       } else {
-        // Створити документ, якщо його ще немає
-        await updateDoc(userRef, {
+        // Якщо документа немає — створюємо
+        const newUser = {
           name: currentUser.displayName || '',
           photoURL: currentUser.photoURL || '',
           trainings: [],
           completedTrainings: [],
           meals: {}
-        });
-        setUserData({
-          name: currentUser.displayName || '',
-          photoURL: currentUser.photoURL || '',
-          trainings: [],
-          completedTrainings: [],
-          meals: {}
-        });
+        };
+        await setDoc(userRef, newUser);
+        setUserData(newUser);
       }
     };
 
@@ -49,13 +45,15 @@ const Profile = () => {
   const handleChangePhoto = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    
+
     const reader = new FileReader();
     reader.onloadend = async () => {
       const newPhotoURL = reader.result;
       await updateUserProfile({ displayName: userData.name, photoURL: newPhotoURL });
+
       const userRef = doc(db, 'users', currentUser.uid);
       await updateDoc(userRef, { photoURL: newPhotoURL });
+
       setUserData(prev => ({ ...prev, photoURL: newPhotoURL }));
     };
     reader.readAsDataURL(file);
@@ -67,6 +65,7 @@ const Profile = () => {
 
   const handleSaveName = async () => {
     await updateUserProfile({ displayName: userData.name, photoURL: userData.photoURL });
+
     const userRef = doc(db, 'users', currentUser.uid);
     await updateDoc(userRef, { name: userData.name });
   };
@@ -82,15 +81,28 @@ const Profile = () => {
             <div className="profile-photo">
               {userData.photoURL ? (
                 <img src={userData.photoURL} alt="Profile" className="profile-photo-img" />
-              ) : <div>Фото</div>}
+              ) : (
+                <div>Фото</div>
+              )}
             </div>
-            <input type="file" id="photo-upload" accept="image/*" style={{ display: 'none' }} onChange={handleChangePhoto} />
+            <input
+              type="file"
+              id="photo-upload"
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={handleChangePhoto}
+            />
             <label htmlFor="photo-upload" className="change-photo-btn">Змінити фото</label>
           </div>
 
           <div className="profile-info">
             <p><strong>Ваше ім'я:</strong></p>
-            <input type="text" value={userData.name} onChange={handleNameChange} className="name-input" />
+            <input
+              type="text"
+              value={userData.name}
+              onChange={handleNameChange}
+              className="name-input"
+            />
             <button onClick={handleSaveName} className="save-name-btn">Зберегти</button>
           </div>
 
